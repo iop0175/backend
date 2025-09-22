@@ -8,9 +8,9 @@ import { CreateProjectDto } from './dto/project.dto';
 export class ProjectService {
   constructor(@InjectModel(Project.name) private userModel: Model<ProjectDocument>) { }
 
-  async findByUserId(userid: string): Promise<Project | null> {
-    const project = this.userModel.findOne({ userid }).exec();
-    return project;
+  async findByUserId(userid: string): Promise<Project[] | null> {
+    
+    return this.userModel.find({ userid }).exec();
   }
   async create(createProjectDto?: CreateProjectDto) {
     const createdUser = new this.userModel(createProjectDto);

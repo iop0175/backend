@@ -8,11 +8,11 @@ export class Milestone {
   @Prop({ required: true })
   title: string;
 
-  @Prop()
-  description: string;
+  @Prop({ type: Date, required: true })
+  start: Date;
 
   @Prop({ type: Date, required: true })
-  date: Date;
+  end: Date;
 
   @Prop({ type: Types.ObjectId, ref: 'Project', required: true })
   project: Types.ObjectId;

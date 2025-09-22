@@ -13,7 +13,7 @@ export class ProjectController {
   }
 
   @Get('list')
-  async findByUserId(@Query('userid') userid: string): Promise<Project|null> {
+  async findByUserId(@Query('userid') userid: string): Promise<Project[]|null> {
     return this.projectService.findByUserId(userid);
   }
 }
