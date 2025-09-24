@@ -1,5 +1,21 @@
+export class CreateTodoDto {
+  title: string;
+}
+
+export class CreateMilestoneDto {
+  title: string;
+  start: Date;
+  end: Date;
+  todos: string[];
+}
+
 export class CreateProjectDto {
-  readonly title: string;
-  readonly description?: string;
-  readonly owner: string;
+  userid: string;
+  title: string;
+  description: string;
+  start: Date;
+  end: Date;
+  filename:string;
+  path:string;
+  milestones: CreateMilestoneDto[];
 }

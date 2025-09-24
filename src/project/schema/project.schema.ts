@@ -11,6 +11,18 @@ export class Project {
   @Prop()
   description: string;
 
+  @Prop()
+  start : Date;
+
+  @Prop()
+  end : Date;
+
+  @Prop()
+  filename:string;
+
+  @Prop()
+  path:string;
+
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
   userid: Types.ObjectId;
 
