@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post, Query, UseInterceptors,UploadedFile  } from '@nestjs/common';
 import { ProjectService } from './project.service';
 import { CreateProjectDto } from './dto/project.dto';
+import { CreateTeamProjectDto } from './dto/teamProject.dto';
 import { Project } from './schema/project.schema';
 import { diskStorage } from 'multer';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -14,7 +15,10 @@ export class ProjectController {
   async create(@Body() createProjectDto: CreateProjectDto): Promise<Project> {
     return this.projectService.create(createProjectDto);
   }
-
+  @Post('teamcreate')
+  async teamcreate(@Body() createTeamProjectDto: CreateTeamProjectDto): Promise<Project> {
+    return this.projectService.createTeam(createTeamProjectDto);
+  }
   @Get('list')
   async findByUserId(@Query('userid') userid: string): Promise<Project[]|null> {
     return this.projectService.findByUserId(userid);

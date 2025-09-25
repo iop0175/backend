@@ -10,11 +10,12 @@ export class CreateMilestoneDto {
 }
 
 export class CreateMateDto{
+  [x: string]: any;
   userid:string;
   name:string
 }
 
-export class CreateProjectDto {
+export class CreateTeamProjectDto {
   userid: string;
   title: string;
   description: string;
@@ -23,4 +24,5 @@ export class CreateProjectDto {
   filename:string;
   path:string;
   milestones: CreateMilestoneDto[];
+  mate: CreateMateDto[];
 }
