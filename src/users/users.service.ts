@@ -17,7 +17,7 @@ export class UsersService {
         return user;
       }
       async findAll(): Promise<User[]> {
-        return this.userModel.find().exec();
+        return this.userModel.find().select('-password').exec();
       }
       async findByEmailAndName(email:string,name:string):Promise<User|null>{
         return this.userModel.findOne({email,name}).exec();

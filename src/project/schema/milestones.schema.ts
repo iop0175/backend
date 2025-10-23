@@ -13,7 +13,9 @@ export class Milestone {
 
   @Prop({ type: Date, required: true })
   end: Date;
-
+  @Prop({ default:0})
+  progress: number;
+  
   @Prop({ type: Types.ObjectId, ref: 'Project', required: true })
   project: Types.ObjectId;
 }

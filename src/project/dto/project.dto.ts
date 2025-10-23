@@ -6,6 +6,7 @@ export class CreateMilestoneDto {
   title: string;
   start: Date;
   end: Date;
+  progress: number;
   todos: string[];
 }
 
