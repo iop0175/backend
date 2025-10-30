@@ -30,8 +30,7 @@ export class ProjectService {
       projectMap.set(p._id.toString(), p);
     });
     const uniqueProjects = Array.from(projectMap.values());
-
-    if (!projects || projects.length === 0) return [];
+    if (!uniqueProjects || uniqueProjects.length === 0) return [];
     const projectsWithMilestones = await Promise.all(
       uniqueProjects.map(async (project) => {
         const milestones = await this.milestoneModel.find({ project: project._id }).lean().exec();
@@ -42,7 +41,7 @@ export class ProjectService {
         return { ...project, milestones, mate, todos, works };
       })
     );
-
+    console.log(projectsWithMilestones);
     return projectsWithMilestones;
   }
 
